@@ -36,7 +36,9 @@ public class Enemy : MonoBehaviour
         }
         if(enemiesKilled == 10)
         {
-           Debug.Log("You Won");
+            Destroy(gameObject);
+            uIManger.Victory();
+           
         }
     }
 
@@ -54,6 +56,7 @@ public class Enemy : MonoBehaviour
         else if (other.gameObject.name == "Player")
         {
             Destroy(other.gameObject);
+            enemiesKilled = 0;
             uIManger.GameOver();
 
             
