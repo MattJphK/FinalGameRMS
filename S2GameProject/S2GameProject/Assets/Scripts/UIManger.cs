@@ -7,6 +7,7 @@ using TMPro;
 public class UIManger : MonoBehaviour
 {
     public TextMeshProUGUI killText;
+    public TextMeshProUGUI gameOverText;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +30,10 @@ public class UIManger : MonoBehaviour
         {
             killText.text = "YOU WIN";
         }
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
     }
 }

@@ -53,8 +53,8 @@ public class Enemy : MonoBehaviour
         } 
         else if (other.gameObject.name == "Player")
         {
-            Debug.Log("GAME OVER!!!");
             Destroy(other.gameObject);
+            uIManger.GameOver();
 
             
         }
