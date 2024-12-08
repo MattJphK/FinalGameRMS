@@ -12,7 +12,6 @@ public class UIManger : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
     public Button resetButton;
-    public Button winButton;//set because using the same button caused errors
     // Start is called before the first frame update
     void Start()
     {
@@ -44,14 +43,8 @@ public class UIManger : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void ResetWinGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void Victory()
     {
         winText.gameObject.SetActive(true);
-        winButton.gameObject.SetActive(true);
     }
 }
