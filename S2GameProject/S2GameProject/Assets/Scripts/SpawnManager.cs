@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
     public int powerUpNum;//keeps track of the enemies currently in the game
     public int enemiesToBeSpawned;//set the amount spawned at a time
     public bool stopSpawn;//stops everything from spawning when you win
+    private UIManger uIManger;
 
 
     
@@ -22,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {  
-
+       uIManger = GameObject.Find("UI Manager").GetComponent<UIManger>();
        stopSpawn = false; 
     }
 
@@ -65,10 +66,14 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemies(int enemiesToBeSpawned)
     {
-        for(int i = 0; i < enemiesToBeSpawned; i++)
-        {
-            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        if(uIManger.gameIsOn){
+            for(int i = 0; i < enemiesToBeSpawned; i++)
+            {
+                Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+            }
+
         }
+
     }
 
     void SpawnPowerUp()

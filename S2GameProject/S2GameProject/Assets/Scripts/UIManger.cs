@@ -13,7 +13,7 @@ public class UIManger : MonoBehaviour
     public TextMeshProUGUI winText;
     public GameObject titleScreen;
     public Button resetButton;
-    public bool gameIsOn;
+    public bool gameIsOn = false;
     public int totalKills;
     // Start is called before the first frame update
     public void GameStart(int difficulty)
