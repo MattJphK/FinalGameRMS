@@ -11,11 +11,19 @@ public class UIManger : MonoBehaviour
     public TextMeshProUGUI killText;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
+    public GameObject titleScreen;
     public Button resetButton;
+    public bool gameIsOn;
+    public int totalKills;
     // Start is called before the first frame update
-    void Start()
+    public void GameStart(int difficulty)
     {
-
+        //spawnRate /= difficulty;
+        gameIsOn = true;
+        //StartCoroutine(SpawnTarget());
+        totalKills = 0;
+        UpdateKill(0);
+        titleScreen.SetActive(false);
     }
 
 
