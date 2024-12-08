@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  killText: {fileID: 0}
 --- !u!65 &4914099234153672761
 BoxCollider:
   m_ObjectHideFlags: 0
