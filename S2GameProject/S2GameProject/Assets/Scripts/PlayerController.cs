@@ -14,14 +14,17 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 15.0f;
     public GameObject bear;
     public bool hasJPowerUp;//for JumpPowerUp
+    private UIManger uIManger;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        uIManger = GameObject.Find("UI Manager").GetComponent<UIManger>();
         bearRb = GetComponent<Rigidbody>();//accesses the element from unity
         Physics.gravity *= gravityModifier;
         PlayerStartPos();
+        
         
     }
 
@@ -69,7 +72,10 @@ public class PlayerController : MonoBehaviour
     //sets player position
      void PlayerStartPos()
      {
-        bear.transform.position = new Vector3(-102, 1, -22);
+        if(uIManger.gameIsOn){
+            bear.transform.position = new Vector3(-102, 1, -22);
+        }
+        
      }
     //identifies when the player hits a PowerUp
      private void OnTriggerEnter(Collider other)

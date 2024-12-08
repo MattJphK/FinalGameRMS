@@ -24,22 +24,26 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        Vector3 chasePath = (baerTarget.transform.position - transform.position).normalized;
-        //enemyRb.AddForce(chasePath * speed, ForceMode.Impulse); 
-        //isn't working so I changed it
-        enemyRb.MovePosition(transform.position + chasePath * speed * Time.deltaTime);//change to MovePosition addforce suddenly stopped working
-        if(transform.position.x < -253)
-        {
-            Destroy(gameObject);
-            Debug.Log("Enemy reached bounds");
-        }
-        if(enemiesKilled == 10)
-        {
-            Destroy(gameObject);
-            uIManger.Victory();
+        if(uIManger.gameIsOn){
+            Vector3 chasePath = (baerTarget.transform.position - transform.position).normalized;
+            //enemyRb.AddForce(chasePath * speed, ForceMode.Impulse); 
+            //isn't working so I changed it
+            enemyRb.MovePosition(transform.position + chasePath * speed * Time.deltaTime);//change to MovePosition addforce suddenly stopped working
+            if(transform.position.x < -253)
+            {
+                Destroy(gameObject);
+                Debug.Log("Enemy reached bounds");
+            }
+            if(enemiesKilled == 10)
+            {
+                Destroy(gameObject);
+                uIManger.Victory();
            
+            }
+            
         }
+        
+
     }
 
     private void OnCollisionEnter(Collision other)
