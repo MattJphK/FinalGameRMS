@@ -29,6 +29,7 @@ public class UIManger : MonoBehaviour
         totalKills = 0;
         UpdateKill(0);
         titleScreen.SetActive(false);
+        Debug.Log("Current Enemy Speed: " + Enemy.speed);
     }
 
 
