@@ -18,7 +18,12 @@ public class UIManger : MonoBehaviour
     // Start is called before the first frame update
     public void GameStart(int difficulty)
     {
-        //spawnRate /= difficulty;
+        if(difficulty > 0){
+            Enemy.speed = Enemy.speed * difficulty;
+        }
+        else{
+            Enemy.speed = 40.0f;
+        }
         gameIsOn = true;
         //StartCoroutine(SpawnTarget());
         totalKills = 0;
