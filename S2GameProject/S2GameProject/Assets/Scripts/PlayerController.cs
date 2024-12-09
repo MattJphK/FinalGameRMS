@@ -6,8 +6,6 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody bearRb; //player physics e.g mass
     public float JumpForce; //decideds the power of the players jump
-
-    private float turnSpeed = 500f;
     public float gravityModifier; //allows us to modify gravity mechanics 
     public bool standing; //tells us if the player is on the ground
     public float movePlayer;
