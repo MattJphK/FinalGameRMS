@@ -5,14 +5,17 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletLimit = 5.0f;
+    public float bulletLimit = 5.0f;  // Normal bullet limit
     private UIManger uIManger;
     private bool canShoot = true;
     private Powerups powerups;
 
     // Normal and reduced cooldown durations
     private float normalCooldown = 1.2f;
-    private float reducedCooldown = 0.2f;
+    private float reducedCooldown = 0.4f;
+
+    // Introduce a boosted bullet limit for the duration of the powerup
+    private float boostedBulletLimit = 10f; // For example, increase from 5 to 10 bullets
 
     void Start()
     {
@@ -24,19 +27,18 @@ public class WeaponController : MonoBehaviour
     {
         if (uIManger.gameIsOn && canShoot)
         {
-            // Check if we're in the reduced cooldown state
-            bool inReducedCooldownState = (powerups != null && powerups.hasNoCooldown);
-
             if (Input.GetKeyDown(KeyCode.X))
             {
-                int bulletCount = GameObject.FindGameObjectsWithTag("Bullet").Length;
+                // Determine which bullet limit to use based on powerup state
+                bool inReducedCooldownState = (powerups != null && powerups.hasNoCooldown);
+                float currentLimit = inReducedCooldownState ? boostedBulletLimit : bulletLimit;
 
-                // No bullet limit changes made, just as before
-                if (bulletCount < bulletLimit)
+                int bulletCount = GameObject.FindGameObjectsWithTag("Bullet").Length;
+                if (bulletCount < currentLimit)
                 {
                     Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
 
-                    // Apply reduced cooldown if hasNoCooldown is true, otherwise normal cooldown
+                    // Apply the appropriate cooldown
                     float currentCooldown = inReducedCooldownState ? reducedCooldown : normalCooldown;
                     StartCoroutine(BulletCooldown(currentCooldown));
                 }
@@ -48,7 +50,6 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    // Adjusted BulletCooldown to accept a duration parameter so we can set different cooldowns easily
     IEnumerator BulletCooldown(float cooldownTime)
     {
         canShoot = false;
