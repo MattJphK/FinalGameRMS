@@ -7,6 +7,7 @@ public class WeaponController : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletLimit = 5.0f;
     private UIManger uIManger;
+    private bool canShoot = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,18 +15,23 @@ public class WeaponController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+void Update()
+{
+    if (uIManger.gameIsOn && canShoot)
     {
-        if(uIManger.gameIsOn){
-            bulletLimit = bulletLimit - 0.1f;
-            if(Input.GetKeyDown(KeyCode.X) && bulletLimit <= 0.0f)//gets the x key input to fire bullets
-            {
-                Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
-                bulletLimit = 5.0f;
-            }
-
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+            StartCoroutine(BulletCooldown());
         }
-
     }
+}
+
+IEnumerator BulletCooldown()
+{
+    canShoot = false;
+    yield return new WaitForSeconds(1.2f); // wait 5 seconds
+    canShoot = true;
+}
     
 }
