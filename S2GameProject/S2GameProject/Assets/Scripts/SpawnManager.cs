@@ -52,9 +52,9 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    Vector3 GenerateSpawnPosition()
+    Vector3 GenerateSpawnPosition(bool fromLeft)
     {
-        float xPos = Random.Range(spawnMinX, spawnMaxX);
+        float xPos = fromLeft ? -Random.Range(spawnMinX, spawnMaxX) : Random.Range(spawnMinX, spawnMaxX);
         return new Vector3(xPos, 0, spawnZ);
     }
 
@@ -65,16 +65,28 @@ public class SpawnManager : MonoBehaviour
     }
 
     void SpawnEnemies(int enemiesToBeSpawned)
+{
+    if(uIManger.gameIsOn)
     {
-        if(uIManger.gameIsOn){
-            for(int i = 0; i < enemiesToBeSpawned; i++)
+        for(int i = 0; i < enemiesToBeSpawned; i++)
+        {
+            bool fromLeft = (i % 2 == 0); // Alternate spawn side
+            GameObject newEnemy = Instantiate(enemyPrefab, GenerateSpawnPosition(fromLeft), enemyPrefab.transform.rotation);
+
+            // If coming from the left, rotate the enemy to face right
+            if (fromLeft)
             {
-                Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+                newEnemy.transform.rotation = Quaternion.Euler(0, 90f, 0);
             }
-
+            else
+            {
+                // If coming from the right, rotate it to face left
+                newEnemy.transform.rotation = Quaternion.Euler(0, -90f, 0);
+            }
         }
-
     }
+}
+
 
     void SpawnPowerUp()
     {
