@@ -3,19 +3,30 @@ using UnityEngine;
 
 public class Powerups : MonoBehaviour
 {
-    public bool hasJPowerUp = false; // Tracks if player currently has the jump power-up
-    public float jumpPowerUpMultiplier = 2f; // How much stronger the jump is with the power-up
+    public bool hasJPowerUp = false;
+    public float powerUpDuration = 9f;
 
-    // Call this method when the player picks up the jump power-up
-    public void ActivateJumpPowerUp(float duration)
+    // This method is called by PlayerController when the player has a jump power-up and space is pressed
+    public void SuperJump(Rigidbody bearRb, float baseJumpForce)
     {
-        hasJPowerUp = true;
-        StartCoroutine(PowerUpTimeLimit(duration));
+        // Apply double jump force
+        bearRb.AddForce(Vector3.up * baseJumpForce * 2, ForceMode.Impulse);
     }
 
-    private IEnumerator PowerUpTimeLimit(float duration)
+    private void OnTriggerEnter(Collider other)
     {
-        yield return new WaitForSeconds(duration);
+        if (other.CompareTag("JumpPowerUp"))
+        {
+            hasJPowerUp = true;
+            Destroy(other.gameObject);
+            Debug.Log("HasJPUP");
+            StartCoroutine(PowerUpTimeLimit());
+        }
+    }
+
+    IEnumerator PowerUpTimeLimit()
+    {
+        yield return new WaitForSeconds(powerUpDuration);
         hasJPowerUp = false;
         Debug.Log("PowerUp Gone");
     }

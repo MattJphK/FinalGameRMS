@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject bearPlayer;
     private float spawnMinX = 50;
     private float spawnMaxX = 200;
-    private float spawnZ = -22; // set min spawn Z
+    private float spawnZ = -22; 
     public int enemyNum;//keeps track of the enemies currently in the game
     public int powerUpNum;//keeps track of the enemies currently in the game
     public int enemiesToBeSpawned;//set the amount spawned at a time
