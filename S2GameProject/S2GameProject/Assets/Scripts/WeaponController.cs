@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
     private bool canShoot = true;
     private Powerups powerups;
     public AudioClip shootSound;
-    private AudioSource shootAudio;
+
 
     // Normal and reduced cooldown durations
     private float normalCooldown = 1.2f;
@@ -20,7 +20,7 @@ public class WeaponController : MonoBehaviour
     {
         uIManger = GameObject.Find("UI Manager").GetComponent<UIManger>();
         powerups = GameObject.FindObjectOfType<Powerups>();
-        shootSound = GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -42,7 +42,6 @@ public class WeaponController : MonoBehaviour
                     // Apply reduced cooldown if hasNoCooldown is true, otherwise normal cooldown
                     float currentCooldown = inReducedCooldownState ? reducedCooldown : normalCooldown;
                     StartCoroutine(BulletCooldown(currentCooldown));
-                    shootSound.PlayOneShot(shootSound, 1.0f);
                 }
                 else
                 {

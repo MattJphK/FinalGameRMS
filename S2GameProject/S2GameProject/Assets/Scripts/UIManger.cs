@@ -40,9 +40,9 @@ public class UIManger : MonoBehaviour
     }
 
 
-    public void UpdateKill(int totalKills)
+    public void UpdateKill(int kills)
     {
-        totalKills += 1;
+        totalKills = kills;
         killText.text = "KILLS: " + totalKills;
     }
 

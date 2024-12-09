@@ -53,8 +53,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
-            uIManger.UpdateKill(enemiesKilled);
+            
             enemiesKilled += 1;
+            uIManger.UpdateKill(enemiesKilled);
+            
             Debug.Log("enemies killed "+enemiesKilled);
         } 
         else if (other.gameObject.name == "Player")
