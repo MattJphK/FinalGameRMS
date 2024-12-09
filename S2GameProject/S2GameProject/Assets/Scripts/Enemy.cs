@@ -5,7 +5,7 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
-    public static float speed = 40.0f;
+    public float speed = 40.0f;
     private Rigidbody enemyRb;
     private GameObject baerTarget;
     public static int enemiesKilled = 0;//static used so the prefabs are included in the count

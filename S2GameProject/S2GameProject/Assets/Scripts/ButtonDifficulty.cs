@@ -18,14 +18,14 @@ public class ButtonDifficulty : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(SetDifficulty);
         if(difficulty == 0){
-            Enemy.speed = 40.0f;
+            enemyScript.speed = 40.0f;
 
         }
         else if(difficulty == 1){
-            Enemy.speed = Enemy.speed * 2;
+            enemyScript.speed = enemyScript.speed * 2;
         }
         else if(difficulty == 2){
-            Enemy.speed = Enemy.speed * 3;
+            enemyScript.speed = enemyScript.speed * 3;
         }
     }
 
