@@ -15,9 +15,12 @@ public class UIManger : MonoBehaviour
     public Button resetButton;
     public bool gameIsOn = false;
     public int totalKills;
+    public AudioClip gameOverSound;
+    private AudioSource gameOverSource;
     // Start is called before the first frame update
     public void GameStart(int difficulty)
     {
+        gameOverSource = GetComponent<AudioSource>();
         if(difficulty > 0){
             Enemy.speed = Enemy.speed * difficulty;
         }
@@ -50,15 +53,18 @@ public class UIManger : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         resetButton.gameObject.SetActive(true);
+        gameOverSource.PlayOneShot(gameOverSound,1.0f);
     }
 
     public void ResetGame()
     {
+        Enemy.speed = 60.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Victory()
     {
         winText.gameObject.SetActive(true);
+        gameOverSource.PlayOneShot(gameOverSound,1.0f);
     }
 }
