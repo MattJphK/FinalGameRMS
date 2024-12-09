@@ -1776,7 +1776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bear: {fileID: 68718254}
-  offset: {x: 0, y: 5, z: -10}
 --- !u!1 &1112487733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,6 +2239,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1279903057}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1279903061}
   m_SourcePrefab: {fileID: 100100000, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
 --- !u!114 &1279903055
 MonoBehaviour:
@@ -2313,6 +2315,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65c47ba8ff62ca0499873b889f10183e, type: 3}
   m_PrefabInstance: {fileID: 1279903052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1279903061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68718254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919d4ff35f5f10747bec3cb578fe488d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasJPowerUp: 0
+  jumpPowerUpMultiplier: 2
 --- !u!1 &1527358409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3182,7 +3198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6416840762326345855, guid: 0bdfe680700aa2141841e9ecaf08096f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -93.7
+      value: -28.8
       objectReference: {fileID: 0}
     - target: {fileID: 6416840762326345855, guid: 0bdfe680700aa2141841e9ecaf08096f, type: 3}
       propertyPath: m_LocalPosition.y
