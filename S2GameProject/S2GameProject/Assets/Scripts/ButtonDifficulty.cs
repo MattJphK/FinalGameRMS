@@ -14,7 +14,6 @@ public class ButtonDifficulty : MonoBehaviour
     void Start()
     {
         Enemy.speed = 60.0f;
-        Debug.Log($"Button {gameObject.name} initialized with difficulty {difficulty}");
         uIManger = GameObject.Find("UI Manager").GetComponent<UIManger>();
         enemyScript = GameObject.Find("Enemy").GetComponent<Enemy>();
         button = GetComponent<Button>();
