@@ -13,7 +13,7 @@ public class ButtonDifficulty : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Enemy.speed = 40.0f;
+        Enemy.speed = 60.0f;
         Debug.Log($"Button {gameObject.name} initialized with difficulty {difficulty}");
         uIManger = GameObject.Find("UI Manager").GetComponent<UIManger>();
         enemyScript = GameObject.Find("Enemy").GetComponent<Enemy>();
@@ -30,7 +30,7 @@ public class ButtonDifficulty : MonoBehaviour
 
     void SetDifficulty()
     {
-        //Debug.Log(button.gameObject.name + " was clicked");
+        Debug.Log(button.gameObject.name + " was clicked");
         uIManger.GameStart(difficulty);
     }
 }

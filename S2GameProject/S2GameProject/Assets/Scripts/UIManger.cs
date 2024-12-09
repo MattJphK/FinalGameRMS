@@ -22,7 +22,7 @@ public class UIManger : MonoBehaviour
             Enemy.speed = Enemy.speed * difficulty;
         }
         else{
-            Enemy.speed = 40.0f;
+            Enemy.speed = 60.0f;
         }
         gameIsOn = true;
         //StartCoroutine(SpawnTarget());

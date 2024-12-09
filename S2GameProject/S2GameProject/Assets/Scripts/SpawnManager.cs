@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
         if(enemyNum == 0 && stopSpawn == false)
         {
             SpawnEnemies(enemiesToBeSpawned);
-            enemiesToBeSpawned = enemiesToBeSpawned + 1;
+            enemiesToBeSpawned = enemiesToBeSpawned + 2;
         }
 
         if(powerUpNum == 0 && stopSpawn == false)
