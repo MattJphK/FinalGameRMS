@@ -38,13 +38,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && standing)
         {
             Jump();
-
-            // If we have a jump power-up active, use it
-            if (powerups != null && powerups.hasJPowerUp)
-            {
-                // Call the SuperJump method from Powerups, passing in required references
-                powerups.SuperJump(bearRb, JumpForce);
-            }
         }
 
         // Stop player from going off screen

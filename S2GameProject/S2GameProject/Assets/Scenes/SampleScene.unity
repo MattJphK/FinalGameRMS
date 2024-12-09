@@ -2261,7 +2261,6 @@ MonoBehaviour:
   movePlayer: 0
   moveSpeed: 20
   bear: {fileID: 68718254}
-  hasJPowerUp: 0
 --- !u!54 &1279903056
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2327,8 +2326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919d4ff35f5f10747bec3cb578fe488d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasJPowerUp: 0
-  jumpPowerUpMultiplier: 2
+  hasNoCooldown: 0
+  noCooldownDuration: 5
 --- !u!1 &1527358409
 GameObject:
   m_ObjectHideFlags: 0

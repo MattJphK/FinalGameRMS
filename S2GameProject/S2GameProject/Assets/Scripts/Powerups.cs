@@ -3,31 +3,22 @@ using UnityEngine;
 
 public class Powerups : MonoBehaviour
 {
-    public bool hasJPowerUp = false;
-    public float powerUpDuration = 9f;
-
-    // This method is called by PlayerController when the player has a jump power-up and space is pressed
-    public void SuperJump(Rigidbody bearRb, float baseJumpForce)
-    {
-        // Apply double jump force
-        bearRb.AddForce(Vector3.up * baseJumpForce * 2, ForceMode.Impulse);
-    }
+    public bool hasNoCooldown = false;
+    public float noCooldownDuration = 5f; // lasts 5 seconds
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("JumpPowerUp"))
         {
-            hasJPowerUp = true;
+            hasNoCooldown = true;
             Destroy(other.gameObject);
-            Debug.Log("HasJPUP");
-            StartCoroutine(PowerUpTimeLimit());
+            StartCoroutine(NoCooldownTimeLimit());
         }
     }
 
-    IEnumerator PowerUpTimeLimit()
+    IEnumerator NoCooldownTimeLimit()
     {
-        yield return new WaitForSeconds(powerUpDuration);
-        hasJPowerUp = false;
-        Debug.Log("PowerUp Gone");
+        yield return new WaitForSeconds(noCooldownDuration);
+        hasNoCooldown = false;
     }
 }

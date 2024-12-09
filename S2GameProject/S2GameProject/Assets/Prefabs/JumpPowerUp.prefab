@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1159454945530007479}
   - component: {fileID: 8163352004974704035}
   - component: {fileID: 1869833474131267677}
-  - component: {fileID: 4124215444864114748}
   m_Layer: 0
   m_Name: JumpPowerUp
   m_TagString: JumpPowerUp
@@ -106,21 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.467969, y: 3.7870858, z: 1.9366705}
   m_Center: {x: -0.0009151101, y: 0.07603383, z: -0.30895463}
---- !u!114 &4124215444864114748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097415367686260555}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75480a7ee9030144db4b4b07ff7e2219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpPowerUpPrefab: {fileID: 0}
-  spawnInterval: 5
-  spawnOffsetX: 50
-  minHeight: -10
-  maxHeight: 5
-  distanceThreshold: 150
