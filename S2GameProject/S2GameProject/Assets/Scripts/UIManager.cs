@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class UIManger : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI killText;
     public TextMeshProUGUI gameOverText;
