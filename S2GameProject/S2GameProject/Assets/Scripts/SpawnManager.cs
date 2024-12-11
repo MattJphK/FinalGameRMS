@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject jumpPowerUpPrefab;
     public GameObject bearPlayer;
     private float spawnMinX = 50;
-    private float spawnMaxX = 200;
+    private float spawnMaxX = 100;
     private float spawnZ = -22; 
     public int enemyNum;//keeps track of the enemies currently in the game
     public int powerUpNum;//keeps track of the enemies currently in the game
@@ -61,7 +61,7 @@ public class SpawnManager : MonoBehaviour
     Vector3 GeneratePowerUpSpawnPosition()
     {
         float xPos = Random.Range(spawnMinX, spawnMaxX);
-        return new Vector3(xPos, 37, spawnZ);
+        return new Vector3(xPos, 19, spawnZ);
     }
 
     void SpawnEnemies(int enemiesToBeSpawned)
